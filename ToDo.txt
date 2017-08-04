@@ -1,1 +1,2 @@
 Refactor bash-files
+Add matplotlibrc and jupyter-config
