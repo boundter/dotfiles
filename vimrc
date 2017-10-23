@@ -39,6 +39,10 @@ set hidden 					" switch between unsaved buffers
 set exrc				"use local .vimrc
 set secure			"secure local .vimrc
 
+" move .swp files in their own directory
+set backupdir=~/.backup,.,/tmp
+set directory=~/.backup,.,/tmp
+
 " airline
 set laststatus=2 " always show airline
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
