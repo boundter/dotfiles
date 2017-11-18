@@ -3,15 +3,29 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+# Disable Ctrl+s to interrupt terminal
+stty -ixon
+
+# General aliases
+alias datasci="docker run -it -v $PWD:/workplace -p 8888:8888 -e \
+DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro boundter:data-science"
+
+##########
+# Prompt #
+##########
+
+# Define function to get the git branch of the current directory
+# Needed for the prompt
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-# Only shwo the directory in shell prompt
+# Alter the command prompt to: [user@host:directory branch]\n$>
 export PS1="[\[\033[01;32m\]\u@\h\033[01;34m\]:\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
 
-# Function to create a new tex-file
-function create_new_tex () { cp ~/Templates/Template_Tex.tex $1; }
+#######
+# C++ #
+#######
 
 # Create a new .cpp file with a corresponding header
 function new_cpp_with_header(){
@@ -19,13 +33,10 @@ function new_cpp_with_header(){
   python ~/Projects/Scripts/header.py $1 > $1.h
 }
 
-# Create a new application with templates for the CV and so on
-create_new_application () {
-  mkdir $1
-  cd $1
-  cp ~/Templates/Bewerbungen/* .
-  touch timeline.txt
-}
+
+##########
+# Docker #
+##########
 
 # Open data-science notebook docker at directory
 datasci-notebook () {
@@ -35,6 +46,18 @@ datasci-notebook () {
 # Open data-science terminal docker at directory
 datasci-term () {
   docker run -it -v $1:/home/eteichma/work -p 8888:8888 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro data_science:base bash
+}
+
+######################
+# Applications (Job) #
+######################
+
+# Create a new application with templates for the CV and so on
+create_new_application () {
+  mkdir $1
+  cd $1
+  cp ~/Templates/Bewerbungen/* .
+  touch timeline.txt
 }
 
 # Generates a new application as one compact pdf and all the parts for
@@ -109,11 +132,4 @@ generate_application () {
   OPTIND=1
 }
 
-# Aliases
-alias books="cd ~/Documents/Books; atom ."
-alias master="cd ~/Projects/master-thesis"
-alias marsland_learning="cd ~/Projects/machine_learning/Marsland_Learning; source ~/Projects/venv/marsland_learning/bin/activate"
-alias datasci="docker run -it -v $PWD:/workplace -p 8888:8888 -e \
-DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro boundter:data-science"
 
-stty -ixon
