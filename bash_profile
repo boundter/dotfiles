@@ -1,27 +1,6 @@
-# Include the platform specific bash_aliases
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
-# Disable Ctrl+s to interrupt terminal
-stty -ixon
-
 # General aliases
 alias datasci="docker run -it -v $PWD:/workplace -p 8888:8888 -e \
 DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro boundter:data-science"
-
-##########
-# Prompt #
-##########
-
-# Define function to get the git branch of the current directory
-# Needed for the prompt
-parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
-}
-
-# Alter the command prompt to: [user@host:directory branch]\n$>
-export PS1="[\[\033[01;32m\]\u@\h\033[01;34m\]:\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
 
 #######
 # C++ #
@@ -32,7 +11,6 @@ function new_cpp_with_header(){
   echo "#include \"$1.h\"" > $1.cpp
   python ~/Projects/Scripts/header.py $1 > $1.h
 }
-
 
 ##########
 # Docker #
@@ -132,4 +110,37 @@ generate_application () {
   OPTIND=1
 }
 
+###############
+# Linux stuff #
+###############
+
+# Useful shortcuts
+if [ "$(uname)" = "Linux" ]; then
+  
+  openpdf () {
+    okular "$1" 2>/dev/null &
+    disown
+  };
+
+  openpic () {
+    gwenview $1 2>/dev/null &
+    disown
+  };
+
+  opentxt () {
+    kate $1 2>/dev/null &
+    disown
+  };
+
+alias pip3.6="python3.6 -m pip"
+fi
+
+#############
+# Mac Stuff #
+#############
+
+# Include the platform specific bash_aliases
+if [ "$(uname)" = "Darwin" ]; then
+  . ~/.bashrc
+fi
 
