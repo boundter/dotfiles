@@ -141,6 +141,25 @@ fi
 
 # Include the platform specific bash_aliases
 if [ "$(uname)" = "Darwin" ]; then
-  . ~/.bashrc
+  . ~/.bashrc;
+  
+  # Function to show the current directory in the title of the terminal
+  function tab_title {
+   echo -n -e "\033]0;${PWD##*/}\007"
+  };
+
+  PROMPT_COMMAND="tab_title ; $PROMPT_COMMAND";
+
+  # Set macports python as standard
+  # alias python="/opt/local/bin/python3.6"
+
+  # Make pip packages easily accessible
+  export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
+
+  # Shortcut to Textwrangler
+  function tw () {
+    touch $1;
+    open -a /Applications/TextWrangler.app $1
+  };
 fi
 
