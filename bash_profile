@@ -8,7 +8,7 @@ parse_git_branch() {
 }
 
 # Only shwo the directory in shell prompt
-export PS1="[\[\033[01;34m\]\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
+export PS1="[\[\033[01;32m\]\u@\h\033[01;34m\]:\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
 
 # Function to create a new tex-file
 function create_new_tex () { cp ~/Templates/Template_Tex.tex $1; }
