@@ -133,6 +133,7 @@ if [ "$(uname)" = "Linux" ]; then
   };
 
 alias pip3.6="python3.6 -m pip"
+export BOOST_ROOT=$HOME/boost/boost_1_61_0
 fi
 
 #############
@@ -162,5 +163,10 @@ if [ "$(uname)" = "Darwin" ]; then
     touch $1;
     open -a /Applications/TextWrangler.app $1
   };
+
+alias g++=g++-mp-7
+export CXX=g++-mp-7
+export CC =gcc-mp-7
+export BOOST_ROOT=$HOME/boost/boost_1_61_0
 fi
 
