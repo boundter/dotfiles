@@ -152,6 +152,7 @@ if [ "$(uname)" = "Darwin" ]; then
 
   # Set macports python as standard
   # alias python="/opt/local/bin/python3.6"
+  alias vim="/opt/local/bin/vim"
 
   # Make pip packages easily accessible
   export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
