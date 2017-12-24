@@ -5,6 +5,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 if [ "$(uname)" = "Darwin" ]; then
   export CXX=g++-mp-7
   export CC=gcc-mp-7
+  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
   # Make pip packages easily accessible
   export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
 fi
