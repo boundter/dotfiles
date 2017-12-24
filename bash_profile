@@ -166,7 +166,7 @@ if [ "$(uname)" = "Darwin" ]; then
 
 alias g++=g++-mp-7
 export CXX=g++-mp-7
-export CC =gcc-mp-7
+export CC=gcc-mp-7
 export BOOST_ROOT=$HOME/boost/boost_1_61_0
 fi
 
