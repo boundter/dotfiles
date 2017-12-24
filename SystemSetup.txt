@@ -8,7 +8,8 @@ apt update && apt install \
 # Link dotfiles
 ln -fs ~/Projects/dotfiles/vimrc ~/.vimrc
 ln -fs ~/Projects/dotfiles/bashrc ~/.bashrc
-ln -fs ~/Projects/dotfiles/bash_profile ~/.bash_profile
+ln -fs ~/Projects/dotfiles/bash_aliases ~/.bash_aliases
+ln -fs ~/Projects/dotfiles/profile ~/.profile
 ln -fs ~/Projects/dotfiles/tmux.conf ~/.tmux.conf
 
 # vim Plug

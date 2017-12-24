@@ -93,16 +93,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [[ -f ~/.bash_profile && "$(uname)" = "Linux" ]]; then
-    . ~/.bash_profile
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -118,3 +115,16 @@ fi
 
 # Disable Ctrl+s to interrupt terminal
 stty -ixon
+
+#############
+# Mac Stuff #
+#############
+
+if [ "$(uname)" = "Darwin" ]; then
+  # Function to show the current directory in the title of the terminal
+  function tab_title {
+   echo -n -e "\033]0;${PWD##*/}\007"
+  };
+
+  PROMPT_COMMAND="tab_title ; $PROMPT_COMMAND";
+fi
