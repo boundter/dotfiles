@@ -2,6 +2,10 @@
 export BOOST_ROOT=$HOME/boost/boost_1_61_0
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+if [ -d "$HOME/bin" ] ; then                                                                                                                                                                                                                 
+    export PATH=$HOME/bin:$PATH                                                                                                                                                                                                                  
+fi
+
 if [ "$(uname)" = "Darwin" ]; then
   export CXX=g++-mp-7
   export CC=gcc-mp-7
