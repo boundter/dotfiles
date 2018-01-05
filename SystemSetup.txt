@@ -30,4 +30,4 @@ mkdir ~/.backup
 
 # Create paper-style in matplotlib
 mkdir ~/.config/matplotlib/stylelib
-ln -s ~/Projects/dotfiles/paper.mplstyle ~/.config/matplot.ib/stylelib
+ln -s ~/Projects/dotfiles/paper.mplstyle ~/.config/matplotlib/stylelib
