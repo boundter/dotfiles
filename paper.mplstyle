@@ -10,7 +10,7 @@ ytick.major.width : 0.2
 xtick.top : True
 ytick.right : True
 text.usetex : True
-#text.latex.preamble : r'\usepackage{amsmath}'
+text.latex.preamble: \usepackage{amsmath}
 figure.subplot.left: 0.18
 figure.subplot.right: 0.97
 figure.subplot.bottom: 0.14
