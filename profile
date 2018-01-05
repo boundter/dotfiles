@@ -14,4 +14,9 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
 fi
 
+if [ "$HOSTNAME" = "lifschitz" ]; then
+  export CXX=g++-7
+  export CC=gcc-7
+fi
+
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
