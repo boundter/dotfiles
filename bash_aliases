@@ -1,4 +1,4 @@
-alias ll=ls -l
+alias ll="ls -l"
 
 ###############
 # Linux stuff #
