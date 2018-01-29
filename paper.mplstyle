@@ -1,0 +1,21 @@
+font.size : 8
+legend.fontsize : 6
+xtick.labelsize : 6
+ytick.labelsize : 6
+axes.linewidth : 0.4
+xtick.direction : in
+ytick.direction : in
+xtick.major.width : 0.2
+ytick.major.width : 0.2
+xtick.top : True
+ytick.right : True
+text.usetex : True
+text.latex.preamble: \usepackage{amsmath}
+figure.subplot.left: 0.18
+figure.subplot.right: 0.97
+figure.subplot.bottom: 0.14
+figure.subplot.top: 0.98
+# width = A4-width(6.267)*relative-width-image(0.5)
+# height = width/ratio(1.5)
+figure.figsize : 3.1335, 2.089
+savefig.dpi : 300

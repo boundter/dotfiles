@@ -2,8 +2,8 @@
 export BOOST_ROOT=$HOME/boost/boost_1_61_0
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-if [ -d "$HOME/bin" ] ; then                                                                                                                                                                                                                 
-    export PATH=$HOME/bin:$PATH                                                                                                                                                                                                                  
+if [ -d "$HOME/bin" ] ; then
+  export PATH=$HOME/bin:$PATH                                                                                 
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -12,6 +12,13 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH
   # Make pip packages easily accessible
   export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
+fi
+
+if [ -x "$(command -v gcc-7)" ]; then
+  export CC=gcc-7
+fi
+if [ -x "$(command -v g++-7)" ]; then
+  export CXX=g++-7
 fi
 
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
