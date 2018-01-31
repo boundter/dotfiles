@@ -12,6 +12,8 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH
   # Make pip packages easily accessible
   export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
+  # Always keep two cores free of OMP
+  export OMP_NUM_THREADS=$(expr $(sysctl -n hw.ncpu) - 2)
 fi
 
 if [ -x "$(command -v gcc-7)" ]; then
@@ -19,6 +21,11 @@ if [ -x "$(command -v gcc-7)" ]; then
 fi
 if [ -x "$(command -v g++-7)" ]; then
   export CXX=g++-7
+fi
+
+# Always keep two cores free of OMP
+if [ "$(command -v grep)" ] && ! [ "$(uname)" = "Darwin" ]; then
+  export OMP_THREAD_NUM_LIMIT=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
 fi
 
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
