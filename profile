@@ -25,7 +25,7 @@ fi
 
 # Always keep two cores free of OMP
 if [ "$(command -v grep)" ] && ! [ "$(uname)" = "Darwin" ]; then
-  export OMP_THREAD_NUM_LIMIT=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
+  export OMP_NUM_THREADS=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
 fi
 
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
