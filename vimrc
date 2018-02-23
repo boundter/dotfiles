@@ -13,10 +13,12 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 
 " colorscheme
-let g:solarized_termcolors=256
+set background=dark
+" uncomment the following two lines and comment the one above to get the light theme
+" let g:solarized_termcolors=256
+" set background=light
 colorscheme solarized
 highlight ColorColumn ctermbg=lightgrey
-set background=light
 
 " editor
 set encoding=utf-8  
