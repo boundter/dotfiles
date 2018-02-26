@@ -78,8 +78,12 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-# Alter the command prompt to: [user@host:directory branch]\n$>
-export PS1="[\[\033[01;32m\]\u@\h\033[01;34m\]:\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
+# Alter the command prompt to: [user@host:directory branch]\n$> on a remote
+# connection and [directory branch]\n$> on the host
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	host="\[\033[01;32m\]\u@\h\033[01;34m\]:"
+fi
+export PS1="[${host}\w\[\033[00;31m\]\$(parse_git_branch)\[\033[00m\]]\n$> "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
