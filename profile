@@ -6,6 +6,10 @@ if [ -d "$HOME/bin" ] ; then
   export PATH=$HOME/bin:$PATH                                                                                 
 fi
 
+if [ "$(uname -n)" = "tolkien" ]; then
+  export PATH=$PATH:/usr/local/cuda
+fi
+
 if [ "$(uname)" = "Darwin" ]; then
   export CXX=g++-mp-7
   export CC=gcc-mp-7
