@@ -32,4 +32,6 @@ if [ "$(command -v grep)" ] && ! [ "$(uname)" = "Darwin" ]; then
   export OMP_NUM_THREADS=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
 fi
 
+export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:$LD_LIBRARY_PATH
+
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac

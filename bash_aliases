@@ -20,6 +20,8 @@ if [ "$(uname)" = "Linux" ]; then
     kate $1 2>/dev/null &
     disown
   };
+
+  alias typora=/lifschitz/teichmann/bin/Typora-linux-x64/Typora
 fi
 
 #############
