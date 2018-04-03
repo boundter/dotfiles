@@ -10,6 +10,10 @@ if [ "$(uname -n)" = "tolkien" ]; then
   export PATH=$PATH:/usr/local/cuda
 fi
 
+if [ "$(uname -n)" = "lifschitz" ]; then
+  export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:$LD_LIBRARY_PATH
+fi
+
 if [ "$(uname)" = "Darwin" ]; then
   export CXX=g++-mp-7
   export CC=gcc-mp-7
@@ -31,7 +35,5 @@ fi
 if [ "$(command -v grep)" ] && ! [ "$(uname)" = "Darwin" ]; then
   export OMP_NUM_THREADS=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
 fi
-
-export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:$LD_LIBRARY_PATH
 
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
