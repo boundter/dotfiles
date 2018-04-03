@@ -14,10 +14,8 @@ call plug#end()
 
 " colorscheme
 set background=dark
-" uncomment the following two lines and comment the one above to get the light theme
-" let g:solarized_termcolors=256
-" set background=light
 colorscheme solarized
+" let g:solarized_termcolors=256
 highlight ColorColumn ctermbg=lightgrey
 
 " editor
