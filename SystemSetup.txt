@@ -6,11 +6,11 @@ apt update && apt install \
   curl
 
 # Link dotfiles
-ln -fs ~/Projects/dotfiles/vimrc ~/.vimrc
-ln -fs ~/Projects/dotfiles/bashrc ~/.bashrc
-ln -fs ~/Projects/dotfiles/bash_aliases ~/.bash_aliases
-ln -fs ~/Projects/dotfiles/profile ~/.profile
-ln -fs ~/Projects/dotfiles/tmux.conf ~/.tmux.conf
+ln -fs ~/Projects/env/dotfiles/vimrc ~/.vimrc
+ln -fs ~/Projects/env/dotfiles/bashrc ~/.bashrc
+ln -fs ~/Projects/env/dotfiles/bash_aliases ~/.bash_aliases
+ln -fs ~/Projects/env/dotfiles/profile ~/.profile
+ln -fs ~/Projects/env/dotfiles/tmux.conf ~/.tmux.conf
 
 # vim Plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -30,4 +30,4 @@ mkdir ~/.backup
 
 # Create paper-style in matplotlib
 mkdir ~/.config/matplotlib/stylelib
-ln -s ~/Projects/dotfiles/paper.mplstyle ~/.config/matplotlib/stylelib
+ln -s ~/Projects/env/dotfiles/paper.mplstyle ~/.config/matplotlib/stylelib
