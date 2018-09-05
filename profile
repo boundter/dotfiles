@@ -1,5 +1,4 @@
 # General aliases
-export BOOST_ROOT=$HOME/boost/boost_1_61_0
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 if [ -d "$HOME/bin" ] ; then
@@ -11,7 +10,8 @@ if [ "$(uname -n)" = "tolkien" ]; then
 fi
 
 if [ "$(uname -n)" = "lifschitz" ]; then
-  export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:$LD_LIBRARY_PATH
+  export BOOST_ROOT=$HOME/boost/include
+  export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:/lifschitz/teichmann/bin/lib64:$LD_LIBRARY_PATH
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
