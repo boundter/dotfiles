@@ -21,7 +21,6 @@ if [ "$(uname)" = "Linux" ]; then
     disown
   };
 
-  alias typora=/lifschitz/teichmann/bin/Typora-linux-x64/Typora
 fi
 
 #############
@@ -44,3 +43,12 @@ if [ "$(uname)" = "Darwin" ]; then
   alias g++=g++-mp-7
 fi
 
+
+#################
+# Host-specific #
+#################
+
+
+if [ "$(uname -n)" = "lifschitz" ]; then
+  alias typora=~/bin/Typora-linux-x64/Typora
+fi
