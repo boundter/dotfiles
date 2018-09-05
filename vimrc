@@ -53,5 +53,8 @@ let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
 autocmd FileType text set tw=79
 autocmd FileType text set syntax=txt
 
+" python prevent linebreak
+autocmd FileType python set formatoptions=croql
+
 " shortcuts
 noremap <silent> <C-S> :update<CR>
