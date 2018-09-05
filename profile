@@ -7,6 +7,11 @@ fi
 
 if [ "$(uname -n)" = "tolkien" ]; then
   export PATH=$PATH:/usr/local/cuda
+  export BOOST_ROOT=$HOME/boost/boost_1_66_0/include
+  export LC_ALL="en_US.UTF-8"
+  export LD_LIBRARY_PATH=/home/eteichma/bin:$LD_LIBRARY_PATH
+  export MKUR_DATA=/home/eteichma/Projects/physics/m-kuramoto-sakaguchi/data
+  export PYTHONPATH=/home/eteichma/Projects/physics/m-kuramoto-sakaguchi/lib:$PYTHONPATH
 fi
 
 if [ "$(uname -n)" = "lifschitz" ]; then
@@ -15,6 +20,7 @@ if [ "$(uname -n)" = "lifschitz" ]; then
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
+  export BOOST_ROOT=$HOME/boost/boost_1_61_0
   export CXX=g++-mp-7
   export CC=gcc-mp-7
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH
