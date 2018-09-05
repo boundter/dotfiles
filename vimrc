@@ -55,6 +55,9 @@ autocmd FileType text set syntax=txt
 
 " python prevent linebreak
 autocmd FileType python set formatoptions=croql
+autocmd FileType python set tabstop=4
+autocmd FileType python set softtabstop=4
+autocmd FileType python set shiftwidth=4
 
 " shortcuts
 noremap <silent> <C-S> :update<CR>
