@@ -7,6 +7,7 @@ fi
 
 if [ "$(uname -n)" = "tolkien" ]; then
   export PATH=$PATH:/usr/local/cuda
+  export PATH=$HOME/.local/bin:$PATH
   export BOOST_ROOT=$HOME/boost/boost_1_66_0/include
   export LC_ALL="en_US.UTF-8"
   export LD_LIBRARY_PATH=/home/eteichma/bin:$LD_LIBRARY_PATH
