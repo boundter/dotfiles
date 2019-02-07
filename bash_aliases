@@ -42,6 +42,19 @@ if [ "$(uname)" = "Linux" ]; then
     disown
   };
 
+  alias backup="$HOME/Projects/scripts/backup.sh"
+
+  check_py () {
+    echo "==== flake8 ===="
+    flake8 $1
+    echo "==== pyflakes ===="
+    pyflakes $1
+    echo "==== pylint ===="
+    pylint $1
+  }
+
+  alias mover="python3 ~/Projects/scripts/mover.py"
+  alias checker="python3 ~/Projects/scripts/check_tag_integrity.py"
 fi
 
 #############
