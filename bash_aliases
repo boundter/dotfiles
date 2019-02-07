@@ -1,11 +1,32 @@
 alias ll="ls -l"
 
+############
+# Projects #
+############
+
+alias daafi_dev="docker run \
+                 --rm -it \
+                 -p 5000:5000 \
+                 -e 'FLASK_ENV=development' \
+                 -v ~/Projects/DAAFi:/app daafi sh"
+
+alias daafi_web_dev="docker run \
+                     --rm \
+                     -p 5000:5000 \
+                     -e 'FLASK_ENV=development' \
+                     -v ~/Projects/DAAFi:/app daafi"
+
+alias daafi="docker run \
+               --rm -d \
+               -p 5000:5000 daafi"
+
+
 ###############
 # Linux stuff #
 ###############
 
 if [ "$(uname)" = "Linux" ]; then
-  
+
   openpdf () {
     okular "$1" 2>/dev/null &
     disown
