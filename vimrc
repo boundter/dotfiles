@@ -61,3 +61,6 @@ autocmd FileType python set shiftwidth=4
 
 " shortcuts
 noremap <silent> <C-S> :update<CR>
+
+" remove trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
