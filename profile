@@ -2,7 +2,7 @@
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 if [ -d "$HOME/bin" ] ; then
-  export PATH=$HOME/bin:$PATH                                                                                 
+  export PATH=$HOME/bin:$PATH
 fi
 
 if [ "$(uname -n)" = "tolkien" ]; then
@@ -23,14 +23,18 @@ if [ "$(uname -n)" = "lifschitz" ]; then
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
-  export BOOST_ROOT=$HOME/boost/boost_1_61_0
+  export BOOST_ROOT=$HOME/boost/include
   export CXX=g++-mp-7
   export CC=gcc-mp-7
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+  export PATH=/opt/local/bin:/opt/local/sbin:/$HOME/Library/Python/3.6/bin:$PATH
   # Make pip packages easily accessible
-  export PATH=$PATH:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin;
+  export PATH=/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin:$PATH;
   # Always keep two cores free of OMP
   export OMP_NUM_THREADS=$(expr $(sysctl -n hw.ncpu) - 2)
+  # Projects
+  export MKUR_DATA=~/Projects/m-kuramoto-sakaguchi/data
+  export XMKUR_DATA=~/Projects/extended_m_kuramoto_sakaguchi/data
+  export PYTHONPATH=$PYTHONPATH:~/Projects/m-kuramoto-sakaguchi/lib:~/Projects/extended_m_kuramoto_sakaguchi/lib
 fi
 
 if [ -x "$(command -v gcc-7)" ]; then
