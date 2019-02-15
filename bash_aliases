@@ -70,6 +70,16 @@ if [ "$(uname)" = "Darwin" ]; then
     open -a /Applications/TextWrangler.app $1
   };
 
+
+  check_py () {
+    echo "==== flake8 ===="
+    flake8 $1
+    echo "==== pyflakes ===="
+    pyflakes $1
+    echo "==== pylint ===="
+    pylint $1
+  }
+
   # Set macports vim as standard
   alias vim="/opt/local/bin/vim"
 
