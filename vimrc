@@ -19,21 +19,21 @@ colorscheme solarized
 highlight ColorColumn ctermbg=lightgrey
 
 " editor
-set encoding=utf-8  
+set encoding=utf-8
 filetype on         " detect filetype
 syntax enable				" syntax-highlighting
 set nu							" numbering lines
 set tabstop=2				" tabstop = 2 spaces
 set softtabstop=2		" softtabstop = 2 spaces
 set shiftwidth=2		" indent = 2 spaces
-set expandtab     	" expands tab to spaces 
+set expandtab     	" expands tab to spaces
 set textwidth=80		" linebreak after x characters
 set showmatch				" Show matching braces
 set hlsearch				" Highlight search results
 set colorcolumn=80 	"colorcolumn at the x-th row
 set mouse=a 				" activate mouse
 set backspace=indent,eol,start " ?
-set nocompatible    " ?         
+set nocompatible    " ?
 set hidden 					" switch between unsaved buffers
 
 " .vimrc
@@ -50,14 +50,17 @@ set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fu
 let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
 
 " txt-files
-autocmd FileType text set tw=79
-autocmd FileType text set syntax=txt
+autocmd FileType text setlocal tw=79
+autocmd FileType text setlocal syntax=txt
 
 " python prevent linebreak
-autocmd FileType python set formatoptions=croql
-autocmd FileType python set tabstop=4
-autocmd FileType python set softtabstop=4
-autocmd FileType python set shiftwidth=4
+autocmd FileType python setlocal formatoptions=croql
+autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal shiftwidth=4
+
+" tex prevent linebreak
+autocmd FileType tex setlocal formatoptions=croql
 
 " shortcuts
 noremap <silent> <C-S> :update<CR>
