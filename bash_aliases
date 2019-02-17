@@ -20,6 +20,7 @@ alias daafi="docker run \
                --rm -d \
                -p 5000:5000 daafi"
 
+alias pages="docker run --rm -v ${PWD}:/srv/jekyll -p 4000:4000 boundter/github-pages jekyll serve"
 
 ###############
 # Linux stuff #
