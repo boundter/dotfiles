@@ -62,6 +62,12 @@ autocmd FileType python setlocal shiftwidth=4
 " tex prevent linebreak
 autocmd FileType tex setlocal formatoptions=croql
 
+" html prevent linebreak
+autocmd FileType html setlocal formatoptions=croql
+
+" sh prevent linebreak
+autocmd FileType sh setlocal formatoptions=croql
+
 " shortcuts
 noremap <silent> <C-S> :update<CR>
 
