@@ -22,6 +22,10 @@ alias daafi="docker run \
 
 alias pages="docker run --rm -v ${PWD}:/srv/jekyll -p 4000:4000 boundter/github-pages jekyll serve"
 
+alias flask_docker="docker run --rm -v ${PWD}:/app -p 80:80 tiangolo/uwsgi-nginx-flask"
+
+alias flask_test="docker run --rm -t -v ${PWD}:/app boundter/flask-pytest"
+
 ###############
 # Linux stuff #
 ###############
@@ -47,11 +51,9 @@ if [ "$(uname)" = "Linux" ]; then
 
   check_py () {
     echo "==== flake8 ===="
-    flake8 $1
-    echo "==== pyflakes ===="
-    pyflakes $1
+    flake8 --ignore=D103 --exclude=__init__.py $1
     echo "==== pylint ===="
-    pylint $1
+    pylint --disable=C0111,E0401 $1
   }
 
   alias mover="python3 ~/Projects/scripts/mover.py"
