@@ -26,6 +26,15 @@ alias flask_docker="docker run --rm -v ${PWD}:/app -p 80:80 tiangolo/uwsgi-nginx
 
 alias flask_test="docker run --rm -t -v ${PWD}:/app boundter/flask-pytest"
 
+check_py () {
+  echo "==== flake8 ===="
+  flake8 --ignore=D103 --exclude=__init__.py $1
+  echo "==== pyflakes ===="
+  pyflakes $1
+  echo "==== pylint ===="
+  pylint --disable=C0111,E0401 $1
+}
+
 ###############
 # Linux stuff #
 ###############
@@ -49,13 +58,6 @@ if [ "$(uname)" = "Linux" ]; then
 
   alias backup="$HOME/Projects/scripts/backup.sh"
 
-  check_py () {
-    echo "==== flake8 ===="
-    flake8 --ignore=D103 --exclude=__init__.py $1
-    echo "==== pylint ===="
-    pylint --disable=C0111,E0401 $1
-  }
-
   alias mover="python3 ~/Projects/scripts/mover.py"
   alias checker="python3 ~/Projects/scripts/check_tag_integrity.py"
 fi
@@ -72,16 +74,6 @@ if [ "$(uname)" = "Darwin" ]; then
     touch $1;
     open -a /Applications/TextWrangler.app $1
   };
-
-
-  check_py () {
-    echo "==== flake8 ===="
-    flake8 $1
-    echo "==== pyflakes ===="
-    pyflakes $1
-    echo "==== pylint ===="
-    pylint $1
-  }
 
   # Set macports vim as standard
   alias vim="/opt/local/bin/vim"
