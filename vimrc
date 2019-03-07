@@ -75,5 +75,5 @@ noremap <silent> <C-S> :update<CR>
 autocmd BufWritePre * %s/\s\+$//e
 
 " tab-complete like bash
-set wildmode=longest,full
+set wildmode=list:longest,full
 set wildmenu
