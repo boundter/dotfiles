@@ -35,33 +35,6 @@ check_py () {
   pylint --disable=C0111,E0401 $1
 }
 
-###############
-# Linux stuff #
-###############
-
-if [ "$(uname)" = "Linux" ]; then
-
-  openpdf () {
-    okular "$1" 2>/dev/null &
-    disown
-  };
-
-  openpic () {
-    gwenview $1 2>/dev/null &
-    disown
-  };
-
-  opentxt () {
-    kate $1 2>/dev/null &
-    disown
-  };
-
-  alias backup="$HOME/Projects/scripts/backup.sh"
-
-  alias mover="python3 ~/Projects/scripts/mover.py"
-  alias checker="python3 ~/Projects/scripts/check_tag_integrity.py"
-fi
-
 #############
 # Mac Stuff #
 #############

@@ -5,16 +5,6 @@ if [ -d "$HOME/bin" ] ; then
   export PATH=$HOME/bin/scripts:$HOME/bin:$PATH
 fi
 
-if [ "$(uname -n)" = "tolkien" ]; then
-  export PATH=$PATH:/usr/local/cuda
-  export PATH=$HOME/.local/bin:$PATH
-  export BOOST_ROOT=$HOME/boost/boost_1_66_0/include
-  export LC_ALL="en_US.UTF-8"
-  export LD_LIBRARY_PATH=/home/eteichma/bin:$LD_LIBRARY_PATH
-  export MKUR_DATA=/home/eteichma/Projects/physics/m-kuramoto-sakaguchi/data
-  export PYTHONPATH=/home/eteichma/Projects/physics/m-kuramoto-sakaguchi/lib:$PYTHONPATH
-fi
-
 if [ "$(uname -n)" = "lifschitz" ]; then
   export BOOST_ROOT=$HOME/boost/include
   export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:/lifschitz/teichmann/bin/lib64:$LD_LIBRARY_PATH
@@ -42,11 +32,6 @@ if [ -x "$(command -v gcc-7)" ]; then
 fi
 if [ -x "$(command -v g++-7)" ]; then
   export CXX=g++-7
-fi
-
-# Always keep two cores free of OMP
-if [ "$(command -v grep)" ] && ! [ "$(uname)" = "Darwin" ]; then
-  export OMP_NUM_THREADS=$(expr $(grep -c ^processor /proc/cpuinfo) - 2)
 fi
 
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
