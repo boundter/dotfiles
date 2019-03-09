@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-TERM=xterm-256color
+# TERM=xterm-256color
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -119,16 +119,3 @@ fi
 
 # Disable Ctrl+s to interrupt terminal
 stty -ixon
-
-#############
-# Mac Stuff #
-#############
-
-if [ "$(uname)" = "Darwin" ]; then
-  # Function to show the current directory in the title of the terminal
-  function tab_title {
-   echo -n -e "\033]0;${PWD##*/}\007"
-  };
-
-  PROMPT_COMMAND="tab_title ; $PROMPT_COMMAND";
-fi
