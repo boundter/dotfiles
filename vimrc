@@ -41,8 +41,8 @@ set exrc				"use local .vimrc
 set secure			"secure local .vimrc
 
 " move .swp files in their own directory
-set backupdir=~/.backup//,.,/tmp//
-set directory=~/.backup//,.,/tmp//
+set backupdir=$HOME/.backup//,.,/tmp//
+set directory=$HOME/.backup//,.,/tmp//
 
 " airline
 set laststatus=2 " always show airline
