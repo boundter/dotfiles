@@ -34,12 +34,3 @@ check_py () {
   echo "==== pylint ===="
   pylint --disable=C0111,E0401 $1
 }
-
-#################
-# Host-specific #
-#################
-
-
-if [ "$(uname -n)" = "lifschitz" ]; then
-  alias typora=~/bin/Typora-linux-x64/Typora
-fi

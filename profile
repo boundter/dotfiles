@@ -5,13 +5,6 @@ export PATH=$HOME/scripts:$HOME/.local/bin:$PATH
 
 export LD_LIBRARY_PATH=$HOME/.local:$LD_LIBRARY_PATH
 
-if [ "$(uname -n)" = "lifschitz" ]; then
-  export BOOST_ROOT=$HOME/boost/include
-  export LD_LIBRARY_PATH=/lifschitz/teichmann/bin:/lifschitz/teichmann/bin/lib64:$LD_LIBRARY_PATH
-  export MKUR_DATA=/lifschitz/teichmann/Projects/m-kuramoto-sakaguchi/data
-  export PYTHONPATH=/lifschitz/teichmann/Projects/m-kuramoto-sakaguchi/lib:$PYTHONPATH
-fi
-
 if [ -x "$(command -v gcc-7)" ]; then
   export CC=gcc-7
 fi
