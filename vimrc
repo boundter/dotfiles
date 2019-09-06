@@ -62,6 +62,9 @@ autocmd FileType python setlocal shiftwidth=4
 " tex prevent linebreak
 autocmd FileType tex setlocal formatoptions=croql
 
+" text prevent linebreak
+autocmd FileType text setlocal formatoptions=croql
+
 " html prevent linebreak
 autocmd FileType html setlocal formatoptions=croql
 
