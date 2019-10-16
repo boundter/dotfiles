@@ -27,6 +27,8 @@ alias flask_docker="docker run --rm -v ${PWD}:/app -p 80:80 tiangolo/uwsgi-nginx
 
 alias flask_test="docker run --rm -t -v ${PWD}:/app boundter/flask-pytest"
 
+alias remote_lab="ssh -N -L localhost:8888:localhost:8889 lifschitz"
+
 check_py () {
   echo "==== flake8 ===="
   flake8 --ignore=D103 --exclude=__init__.py $1
