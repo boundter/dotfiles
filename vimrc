@@ -9,7 +9,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-obsession'
-
+Plug 'rhysd/vim-grammarous'
+Plug 'Valloric/YouCompleteMe'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " colorscheme
@@ -35,6 +37,7 @@ set mouse=a 				" activate mouse
 set backspace=indent,eol,start " ?
 set nocompatible    " ?
 set hidden 					" switch between unsaved buffers
+highlight! link SignColumn LineNr
 
 " .vimrc
 set exrc				"use local .vimrc
@@ -59,9 +62,6 @@ autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
 
-" tex prevent linebreak
-autocmd FileType tex setlocal formatoptions=croql
-
 " text prevent linebreak
 autocmd FileType text setlocal formatoptions=croql
 
@@ -80,3 +80,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " tab-complete like bash
 set wildmode=list:longest,full
 set wildmenu
+
+" useful aliases
+cabbrev sc setlocal spell spelllang=en_us
