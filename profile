@@ -11,5 +11,11 @@ fi
 if [ -x "$(command -v g++-7)" ]; then
   export CXX=g++-7
 fi
+if [ -x "$(command -v gcc-9)" ]; then
+  export CC=gcc-9
+fi
+if [ -x "$(command -v g++-9)" ]; then
+  export CXX=g++-9
+fi
 
 case "$-" in *i*) if [ -r $HOME/.bashrc ]; then . $HOME/.bashrc; fi;; esac
