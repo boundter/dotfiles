@@ -12,7 +12,15 @@ Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-grammarous'
 Plug 'Valloric/YouCompleteMe'
 Plug 'preservim/nerdtree'
+Plug 'vim-syntastic/syntastic'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
+
+" make life painful
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " colorscheme
 set background=dark
@@ -83,3 +91,9 @@ set wildmenu
 
 " useful aliases
 cabbrev sc setlocal spell spelllang=en_us
+
+" python linters
+let g:sytastic_python_checkers = ['flake8', 'pylint']
+
+" black on save
+"autocmd BufWritePre *.py execute ':Black'
