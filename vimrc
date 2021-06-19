@@ -22,6 +22,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" clipboard
+set clipboard=unnamed
+
 " colorscheme
 set background=dark
 colorscheme solarized
