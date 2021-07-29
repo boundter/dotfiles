@@ -18,22 +18,36 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
+"==================
+" Remaps
+"==================
+
 " make life painful
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" clipboard
-set clipboard=unnamed
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" colorscheme
-set background=dark
-colorscheme solarized
-" let g:solarized_termcolors=256
-highlight ColorColumn ctermbg=lightgrey
+" Enable folding with the spacebar
+nnoremap <space> za
 
-" editor
+" make j and k act normally for wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+" YCM
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"==================
+" Editor Settings
+"==================
+
 set encoding=utf-8
 filetype on         " detect filetype
 syntax enable				" syntax-highlighting
@@ -42,7 +56,6 @@ set tabstop=2				" tabstop = 2 spaces
 set softtabstop=2		" softtabstop = 2 spaces
 set shiftwidth=2		" indent = 2 spaces
 set expandtab     	" expands tab to spaces
-set textwidth=80		" linebreak after x characters
 set showmatch				" Show matching braces
 set hlsearch				" Highlight search results
 set colorcolumn=80,111 	"colorcolumn at the x-th row
@@ -50,7 +63,7 @@ set mouse=a 				" activate mouse
 set backspace=indent,eol,start " ?
 set nocompatible    " ?
 set hidden 					" switch between unsaved buffers
-highlight! link SignColumn LineNr
+set clipboard=unnamed
 
 " .vimrc
 set exrc				"use local .vimrc
@@ -60,77 +73,71 @@ set secure			"secure local .vimrc
 set backupdir=$HOME/.backup//,.,/tmp//
 set directory=$HOME/.backup//,.,/tmp//
 
-" airline
-set laststatus=2 " always show airline
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
-let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
-
-" txt-files
-autocmd FileType text setlocal tw=79
-autocmd FileType text setlocal syntax=txt
-
-" python prevent linebreak
-autocmd FileType python setlocal formatoptions=croql
-autocmd FileType python setlocal tabstop=4
-autocmd FileType python setlocal softtabstop=4
-autocmd FileType python setlocal shiftwidth=4
-
-" YCM shortcut
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-let g:SimpylFold_docstring_preview = 1
-
-" pep8 style
-"au BufNewFile,BufRead *.py
-"    \ set tabstop=4
-"    \ set softtabstop=4
-"    \ set shiftwidth=4
-"    \ set textwidth=79
-"    \ set expandtab
-"    \ set autoindent
-"    \ set fileformat=unix
-
-" text prevent linebreak
-autocmd FileType text setlocal formatoptions=croql
-
-" html prevent linebreak
-autocmd FileType html setlocal formatoptions=croql
-
-" sh prevent linebreak
-autocmd FileType sh setlocal formatoptions=croql
-
-" shortcuts
-noremap <silent> <C-S> :update<CR>
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" remove trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-
+" tab-complete like bash
+set wildmode=list:longest,full
+set wildmenu
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
-nnoremap <space> za
+"==================
+" Colors
+"==================
 
-" tab-complete like bash
-set wildmode=list:longest,full
-set wildmenu
+" colorscheme
+set background=dark
+colorscheme solarized
+" let g:solarized_termcolors=256
+highlight! link SignColumn LineNr
 
-" ycm
-let g:ycm_autoclose_preview_window_after_completion = 1
+"==================
+" Shortcuts
+"==================
 
 " useful aliases
 cabbrev sc setlocal spell spelllang=en_us
 
+"==================
+" Autocommands
+"==================
+
+" remove trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+
+"==================
+" Plugins
+"==================
+
+" airline
+set laststatus=2 " always show airline
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
+let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
+
+" simplyFold
+let g:SimpylFold_docstring_preview = 1
+
+" ycm
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " python linters
 let g:syntastic_python_checkers = ['flake8']
 
-" black on save
-"autocmd BufWritePre *.py execute ':Black'
+"==================
+" Filetype Specific
+"==================
+
+" txt-files
+autocmd FileType text setlocal syntax=txt
+autocmd FileType text setlocal spell spelllang=en_us
+
+" python
+autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal shiftwidth=4
+
+" markdown
+autocmd FileType markdown setlocal spell spelllang=en_us
+
+" gitcommit
+autocmd FileType gitcommit setlocal spell spelllang=en_us
