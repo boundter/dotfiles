@@ -14,6 +14,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'preservim/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'tmhedberg/SimpylFold'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " make life painful
@@ -43,7 +45,7 @@ set expandtab     	" expands tab to spaces
 set textwidth=80		" linebreak after x characters
 set showmatch				" Show matching braces
 set hlsearch				" Highlight search results
-set colorcolumn=80 	"colorcolumn at the x-th row
+set colorcolumn=80,111 	"colorcolumn at the x-th row
 set mouse=a 				" activate mouse
 set backspace=indent,eol,start " ?
 set nocompatible    " ?
@@ -73,6 +75,21 @@ autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
 
+" YCM shortcut
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:SimpylFold_docstring_preview = 1
+
+" pep8 style
+"au BufNewFile,BufRead *.py
+"    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+
 " text prevent linebreak
 autocmd FileType text setlocal formatoptions=croql
 
@@ -85,18 +102,35 @@ autocmd FileType sh setlocal formatoptions=croql
 " shortcuts
 noremap <silent> <C-S> :update<CR>
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " remove trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
+
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
 
 " tab-complete like bash
 set wildmode=list:longest,full
 set wildmenu
 
+" ycm
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " useful aliases
 cabbrev sc setlocal spell spelllang=en_us
 
 " python linters
-let g:sytastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_checkers = ['flake8']
 
 " black on save
 "autocmd BufWritePre *.py execute ':Black'
