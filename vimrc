@@ -17,6 +17,7 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "==================
@@ -120,14 +121,10 @@ let g:SimpylFold_docstring_preview = 1
 
 " ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
-
-let g:ycm_language_server = [
-  \   { 'name': 'scala',
-  \     'filetypes': [ 'scala' ],
-  \     'cmdline': [ 'metals-vim' ],
-  \     'project_root_files': [ 'build.sbt' ]
-  \   },
-  \ ]
+let g:ycm_filetype_blacklist = {
+  \ 'text': 1,
+  \ 'scala': 1
+  \}
 
 " python linters
 let g:syntastic_python_checkers = ['flake8']
