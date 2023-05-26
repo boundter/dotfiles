@@ -16,6 +16,7 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "==================
@@ -86,7 +87,8 @@ set foldlevel=99
 "==================
 
 " colorscheme
-set background=dark
+"set background=dark
+set background=light
 colorscheme solarized
 " let g:solarized_termcolors=256
 highlight! link SignColumn LineNr
@@ -114,6 +116,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set laststatus=2 " always show airline
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
 let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 
 " simplyFold
 let g:SimpylFold_docstring_preview = 1
