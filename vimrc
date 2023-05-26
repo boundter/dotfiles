@@ -1,6 +1,5 @@
 call plug#begin()
 
-"Plug 'matze/vim-tex-fold'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'bling/vim-bufferline'
@@ -17,7 +16,6 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "==================
@@ -99,6 +97,7 @@ highlight! link SignColumn LineNr
 
 " useful aliases
 cabbrev sc setlocal spell spelllang=en_us
+cabbrev scde setlocal spell spelllang=de_de
 
 "==================
 " Autocommands
@@ -123,7 +122,6 @@ let g:SimpylFold_docstring_preview = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist = {
   \ 'text': 1,
-  \ 'scala': 1
   \}
 
 " python linters
