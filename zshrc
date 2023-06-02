@@ -113,4 +113,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
+PROMPT='%* '"$PROMPT"
+
 source $HOME/.zsh_aliases
