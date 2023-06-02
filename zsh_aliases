@@ -13,14 +13,4 @@ opentxt () {
   disown
 }
 
-alias backup="$HOME/scripts/rsync_tmbackup.sh --rsync-append-flags --xattrs --rsync-append-flags --executability $HOME /media/mybook2/timemachine/ $HOME/scripts/excluded_patterns.txt"
-alias backup_old="$HOME/scripts/rsync_tmbackup.sh --rsync-append-flags --xattrs --rsync-append-flags --executability $HOME /media/mybook/timemachine/ $HOME/scripts/excluded_patterns.txt"
-
-alias mover="python3 $HOME/Projects/scripts/mover.py"
-alias checker="python3 $HOME/Projects/scripts/check_tag_integrity.py"
-
-alias qmake="/usr/local/Qt-5.15.1/bin/qmake"
-
-alias twitter-dl="youtube-dl -r 500K --sleep-interval 20 --max-sleep-interval 40 --restrict-filenames -o '%(uploader)s-%(id)s.%(ext)s' -a links.txt"
-
 alias send_notification="notify-send -a Konsole -h 'string:desktop-entry:org.kde.konsole' -t 5000"

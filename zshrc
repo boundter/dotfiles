@@ -109,7 +109,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+fi
+
+# Solarized Dark
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+
+# Solarized Light
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+
+
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 

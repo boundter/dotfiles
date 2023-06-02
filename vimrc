@@ -1,6 +1,5 @@
 call plug#begin()
 
-"Plug 'matze/vim-tex-fold'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'bling/vim-bufferline'
@@ -17,7 +16,7 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tmhedberg/SimpylFold'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "==================
@@ -88,7 +87,8 @@ set foldlevel=99
 "==================
 
 " colorscheme
-set background=dark
+"set background=dark
+set background=light
 colorscheme solarized
 " let g:solarized_termcolors=256
 highlight! link SignColumn LineNr
@@ -99,6 +99,7 @@ highlight! link SignColumn LineNr
 
 " useful aliases
 cabbrev sc setlocal spell spelllang=en_us
+cabbrev scde setlocal spell spelllang=de_de
 
 "==================
 " Autocommands
@@ -115,6 +116,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set laststatus=2 " always show airline
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
 let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 
 " simplyFold
 let g:SimpylFold_docstring_preview = 1
@@ -123,7 +126,6 @@ let g:SimpylFold_docstring_preview = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_filetype_blacklist = {
   \ 'text': 1,
-  \ 'scala': 1
   \}
 
 " python linters
