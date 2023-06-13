@@ -31,6 +31,7 @@ require('lazy').setup({
   },
   -- Languages
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  'neovim/nvim-lspconfig',
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -53,3 +54,7 @@ require('cmp-plugin.config')
 require('dap-plugin.config')
 
 require('metals-plugin.config')
+
+require('treesitter-plugin.config')
+
+require('lsp-plugin.config')
