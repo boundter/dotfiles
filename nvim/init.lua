@@ -30,6 +30,7 @@ require('lazy').setup({
     }
   },
   -- Languages
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -41,14 +42,14 @@ require('lazy').setup({
   {'scalameta/nvim-metals', dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", }}
 })
 
-require('vim/keymaps')
+require('vim.keymaps')
 
-require('vim/config')
+require('vim.config')
 
-require('airline/config')
+require('airline-plugin.config')
 
-require('cmp/config')
+require('cmp-plugin.config')
 
-require('dap/config')
+require('dap-plugin.config')
 
-require('metals/config')
+require('metals-plugin.config')
