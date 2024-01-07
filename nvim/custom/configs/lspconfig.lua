@@ -4,10 +4,3 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-
-lspconfig.rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = {"rust"},
-	root_dir = lspconfig.util.root_pattern("Cargo.toml"),
-})
