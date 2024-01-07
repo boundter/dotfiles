@@ -13,6 +13,11 @@ local plugins = {
         "rust-analyzer",
       }
     }
+  },
+  {
+      "mrcjkb/rustaceanvim",
+      version = '^3', -- Recommended
+      ft = { 'rust' },
   }
 }
 return plugins
