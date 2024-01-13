@@ -9,15 +9,15 @@ return {
       opts = require("config.telescope_setup"),
       config = true
    },
-   {
-      "craftzdog/solarized-osaka.nvim",
-      lazy = false,
-      priority = 1000,
-      cmd = function()
-         vim.cmd("colorscheme solarized-osaka")
-      end,
-   },
-   {
+    {
+       "craftzdog/solarized-osaka.nvim",
+       lazy = false,
+       priority = 1000,
+       cmd = function()
+          vim.cmd("colorscheme solarized-osaka")
+       end,
+    },
+    {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       opts = require("config.treesitter_setup"),
@@ -80,5 +80,10 @@ return {
 			return require("config.nvimtree")
 		end,
 		config = true
-	}
+	},
+   {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      config = true
+   }
 }
