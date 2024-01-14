@@ -1,3 +1,17 @@
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
+
 return {
    {
       "nvim-telescope/telescope.nvim", 
@@ -13,11 +27,20 @@ return {
       "craftzdog/solarized-osaka.nvim",
       lazy = false,
       priority = 1000,
+      opts = {
+         on_colors = function(colors)
+            colors.Normal = colors.orange
+         end,
+         on_highlights = function(highlights, colors)
+            highlights["MsgArea"] = {fg = colors.base}
+         end,
+      },
+      config = true,
       cmd = function()
          vim.cmd("colorscheme solarized-osaka")
       end,
     },
-    {
+   {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       opts = require("config.treesitter_setup"),
@@ -84,12 +107,20 @@ return {
    {
       "nvim-lualine/lualine.nvim",
       dependencies = { 'nvim-tree/nvim-web-devicons' },
+      opts = {
+         theme = "solarized-osaka",
+      },
       config = true
    },
    { 
       "lukas-reineke/indent-blankline.nvim", 
       main = "ibl", 
-      config = true
+      config = true,
+      init = function()
+         local colors = require("solarized-osaka.colors")
+         local IblIndent = string.format("highlight IblIndent guifg=%s blend=nocombine", colors.default.base02)
+         vim.cmd(IblIndent)
+      end,
    },
    {
       "lewis6991/gitsigns.nvim",
