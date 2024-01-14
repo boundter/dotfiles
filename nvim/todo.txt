@@ -1,0 +1,10 @@
+- [ ] Cleanup Keymaps
+   - Keymap show git diff for Hunk
+- [ ] Cleanup Plugin Configuration
+- [ ] Define Defaults for Python
+- [ ] Define Defaults for Rust
+- [ ] Define Defaults for Markdown
+- [ ] Cleanup LSP
+- [ ] Setup LSP Python
+- [ ] Setup LSP Rust
+

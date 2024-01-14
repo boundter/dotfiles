@@ -56,9 +56,9 @@ return {
             { "<C-t>",      function() harpoon:list():select(2) end },
             { "<C-s>",      function() harpoon:list():select(3) end },
             { "<leader>ha", function() harpoon:list():append() end,                     desc = "Harpoon Add file" },
-            { "<leader>hp", function() harpoon:list():next() end,                       desc = "Harpoon Prev" },
-            { "<leader>hn", function() harpoon:list():prev() end,                       desc = "Harpoon Next" },
-            { "<leader>hm", '<cmd>Telescope harpoon marks<cr>',                         desc = "Harpoon Marks" },
+            { "<leader>hn", function() harpoon:list():next() end,                       desc = "Harpoon Prev" },
+            { "<leader>hp", function() harpoon:list():prev() end,                       desc = "Harpoon Next" },
+            { "<leader>hs", '<cmd>Telescope harpoon marks<cr>',                         desc = "Harpoon Marks" },
          }
       end,
       config  = true
@@ -92,10 +92,17 @@ return {
 	},
    {
       "nvim-lualine/lualine.nvim",
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
-      opts = {
-         theme = "solarized-osaka",
-      },
+      dependencies = { "nvim-tree/nvim-web-devicons", "WhoIsSethDaniel/lualine-lsp-progress.nvim" },
+      opts = function()
+         local osaka = require("lualine.themes.solarized-osaka")
+         local colors = require("solarized-osaka.colors")
+
+         osaka.normal.b.bg = colors.default.base01
+         return {
+            options = {theme = osaka},
+            sections = { lualine_c = { "lsp_progress" } }
+         }
+      end,
       config = true
    },
    {
