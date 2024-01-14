@@ -9,13 +9,13 @@ return {
       opts = require("config.telescope_setup"),
       config = true
    },
-    {
-       "craftzdog/solarized-osaka.nvim",
-       lazy = false,
-       priority = 1000,
-       cmd = function()
-          vim.cmd("colorscheme solarized-osaka")
-       end,
+   {
+      "craftzdog/solarized-osaka.nvim",
+      lazy = false,
+      priority = 1000,
+      cmd = function()
+         vim.cmd("colorscheme solarized-osaka")
+      end,
     },
     {
       "nvim-treesitter/nvim-treesitter",
@@ -85,5 +85,35 @@ return {
       "nvim-lualine/lualine.nvim",
       dependencies = { 'nvim-tree/nvim-web-devicons' },
       config = true
-   }
+   },
+   { 
+      "lukas-reineke/indent-blankline.nvim", 
+      main = "ibl", 
+      config = true
+   },
+   {
+      "lewis6991/gitsigns.nvim",
+      ft = { "gitcommit", "diff" },
+      init = function()
+         -- load gitsigns only when a git file is opened, from NvChad
+         vim.api.nvim_create_autocmd({ "BufRead" }, {
+            group = vim.api.nvim_create_augroup("GitSignsLazyLoad", { clear = true }),
+            callback = function()
+               vim.fn.jobstart({"git", "-C", vim.loop.cwd(), "rev-parse"},
+               {
+                  on_exit = function(_, return_code)
+                     if return_code == 0 then
+                        vim.api.nvim_del_augroup_by_name "GitSignsLazyLoad"
+                        vim.schedule(function()
+                           require("lazy").load { plugins = { "gitsigns.nvim" } }
+                        end)
+                     end
+                  end
+               }
+               )
+            end,
+         })
+      end,
+      config = true
+   },
 }
