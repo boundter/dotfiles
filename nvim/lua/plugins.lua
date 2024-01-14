@@ -1,22 +1,8 @@
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
-
-
 return {
    {
-      "nvim-telescope/telescope.nvim", 
-      tag = "0.1.5", 
-      dependencies = {"nvim-lua/plenary.nvim"},  
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.5",
+      dependencies = {"nvim-lua/plenary.nvim"},
       init = function()
          require "config.telescope_config"
       end,
@@ -48,7 +34,7 @@ return {
       main = "nvim-treesitter.configs"
    },
    {
-      "williamboman/mason.nvim", 
+      "williamboman/mason.nvim",
       lazy = false,
       config = true
    },
@@ -88,7 +74,7 @@ return {
    {
       "tpope/vim-fugitive",
 
-   }, 
+   },
 	{
 		"nvim-tree/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
@@ -112,10 +98,13 @@ return {
       },
       config = true
    },
-   { 
-      "lukas-reineke/indent-blankline.nvim", 
-      main = "ibl", 
+   {
+      "lukas-reineke/indent-blankline.nvim",
+      main = "ibl",
       config = true,
+      opts = {
+         scope = { enabled = false },
+      },
       init = function()
          local colors = require("solarized-osaka.colors")
          local IblIndent = string.format("highlight IblIndent guifg=%s blend=nocombine", colors.default.base02)
@@ -147,4 +136,23 @@ return {
       end,
       config = true
    },
+   { 'folke/neodev.nvim', opts = { lspconfig = false } },
+     {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind.nvim',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'saadparwaiz1/cmp_luasnip',
+      'lukas-reineke/cmp-under-comparator',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp-document-symbol',
+      'doxnit/cmp-luasnip-choice',
+    },
+	 config = true,
+    event = 'InsertEnter',
+  },
 }
