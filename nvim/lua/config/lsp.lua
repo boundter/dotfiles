@@ -112,7 +112,10 @@ local servers = {
             },
          },
       },
-   }
+   },
+   pylsp = {},
+   pyright = {},
+   ruff_lsp = {}
 }
 
 for server, config in pairs(servers) do
