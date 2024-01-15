@@ -1,8 +1,6 @@
 return {
    "mbbill/undotree",
    keys = function()
-      return {
-         {"<leader>u", vim.cmd.UndotreeToggle},
-      }
+      return require("config.keys").undotree
    end,
 }

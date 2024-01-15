@@ -2,11 +2,7 @@ return {
    "nvim-tree/nvim-tree.lua",
    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
    keys =     function()
-      return {
-         {"<C-n>", "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-         -- focus
-         {"<leader>e",  "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
-      }
+      return require("config.keys").nvim_tree
    end,
    config = true,
    opts = {
