@@ -23,6 +23,7 @@
 - <C-{h,j,k,l}> - Move to split {left, up. down, right}
 - <leader>u - Show UndoTree
 - <C-O> - Jump to last cursor position
+- <C-^> - Jump to tge last file
 
 ## LSP
 - gD - Go to Declaration

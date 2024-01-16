@@ -13,6 +13,7 @@ return {
    require("config.telescope"),
    require("config.harpoon"),
    -- LSP
+   { 'folke/neodev.nvim', config = true },
    require("config.treesitter"),
    { "williamboman/mason.nvim", lazy = false, config = true },
    require("config.mason_lspconfig"),
