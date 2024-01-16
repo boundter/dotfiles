@@ -1,136 +1,41 @@
-local lspconfig = require("lspconfig")
-local buf_keymap = vim.api.nvim_buf_set_keymap
-local cmd = vim.cmd
+local lspconfig = require('lspconfig')
 
-local client_capabilities = require("cmp_nvim_lsp").default_capabilities()
-client_capabilities.offsetEncoding = { "utf-16" }
+lspconfig.rust_analyzer.setup{}
 
-local keymap_opts = { noremap = true, silent = true }
-local function setup_keymaps(client, _bufnr)
-  buf_keymap(0, "n", "gD", "", vim.tbl_extend("keep", { callback = vim.lsp.buf.declaration }, keymap_opts))
-  buf_keymap(0, "n", "gd", "<cmd>Glance definitions<CR>", keymap_opts)
-  buf_keymap(0, "n", "gi", "<cmd>Glance implementations<CR>", keymap_opts)
-  buf_keymap(0, "n", "gS", "", vim.tbl_extend("keep", { callback = vim.lsp.buf.signature_help }, keymap_opts))
-  buf_keymap(0, "n", "gTD", "", vim.tbl_extend("keep", { callback = vim.lsp.buf.type_definition }, keymap_opts))
-  buf_keymap(0, "n", "<leader>rn", "", {
-    callback = function()
-      return ":IncRename " .. vim.fn.expand "<cword>"
-    end,
-    expr = true,
-  })
-  buf_keymap(0, "v", "<leader>rn", "", {
-    callback = function()
-      return ":IncRename " .. vim.fn.expand "<cword>"
-    end,
-    expr = true,
-  })
-  buf_keymap(0, "n", "gr", "<cmd>Glance references<CR>", keymap_opts)
-  buf_keymap(0, "n", "gA", "", vim.tbl_extend("keep", { callback = vim.lsp.buf.code_action }, keymap_opts))
-  buf_keymap(0, "v", "gA", "", vim.tbl_extend("keep", { callback = vim.lsp.buf.range_code_action }, keymap_opts))
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-  -- TODO: Use the nicer new API for autocommands
-  cmd "augroup lsp_aucmds"
-  if client.server_capabilities.documentHighlightProvider then
-    cmd "au CursorHold <buffer> lua vim.lsp.buf.document_highlight()"
-    cmd "au CursorMoved <buffer> lua vim.lsp.buf.clear_references()"
-  end
-  cmd "augroup END"
-end
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-local on_attach_fns = {
-  function(client, bufnr)
-    vim.lsp.inlay_hint.enable(
-      bufnr,
-      client.server_capabilities.inlayHintProvider ~= nil and client.server_capabilities.inlayHintProvider ~= false
-    )
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
   end,
-  setup_keymaps,
-}
-
-local function do_on_attach_fns(client, bufnr)
-  for _, fn in ipairs(on_attach_fns) do
-    fn(client, bufnr)
-  end
-end
-
-local servers = {
-   lua_ls = {
-      single_file_support = true,
-      settings = {
-         Lua = {
-            workspace = {
-               checkThirdParty = false,
-               library = vim.api.nvim_get_runtime_file("", true),
-            },
-            completion = {
-               workspaceWord = true,
-               callSnippet = "Both",
-            },
-            runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim" } },
-            telemetry = { enable = false },
-         },
-         diagnostics = {
-            groupSeverity = {
-               strong = "Warning",
-               strict = "Warning",
-            },
-            groupFileStatus = {
-               ["ambiguity"] = "Opened",
-               ["await"] = "Opened",
-               ["codestyle"] = "None",
-               ["duplicate"] = "Opened",
-               ["global"] = "Opened",
-               ["luadoc"] = "Opened",
-               ["redefined"] = "Opened",
-               ["strict"] = "Opened",
-               ["strong"] = "Opened",
-               ["type-check"] = "Opened",
-               ["unbalanced"] = "Opened",
-               ["unused"] = "Opened",
-            },
-            unusedLocalExclude = { "_*" },
-         },
-         format = {
-            enable = false,
-            defaultConfig = {
-               indent_style = "space",
-               indent_size = "2",
-               continuation_indent_size = "2",
-            },
-         },
-      },
-   },
-   rust_analyzer = {
-      settings = {
-         ['rust-analyzer'] = {
-            cargo = { allFeatures = true },
-            checkOnSave = {
-               command = 'clippy',
-               extraArgs = { '--no-deps' },
-            },
-         },
-      },
-   },
-   pylsp = {},
-   pyright = {},
-   ruff_lsp = {}
-}
-
-for server, config in pairs(servers) do
-  -- TODO: maybe refactor to avoid creating a new closure per server
-  if config.on_attach then
-    local old_on_attach = config.on_attach
-    config.on_attach = function(client, bufnr)
-      old_on_attach(client, bufnr)
-      do_on_attach_fns(client, bufnr)
-    end
-  else
-    config.on_attach = function(client, bufnr)
-      do_on_attach_fns(client, bufnr)
-    end
-  end
-
-  config.capabilities = vim.tbl_deep_extend("keep", config.capabilities or {}, client_capabilities)
-  lspconfig[server].setup(config)
-end
+})

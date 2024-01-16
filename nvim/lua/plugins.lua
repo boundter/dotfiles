@@ -16,5 +16,5 @@ return {
    require("config.treesitter"),
    { "williamboman/mason.nvim", lazy = false, config = true },
    require("config.mason_lspconfig"),
-   require("config.cmp")
+   require("config.cmp"),
 }

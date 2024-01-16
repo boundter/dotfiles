@@ -1,6 +1,6 @@
 - [ ] Cleanup Keymaps
    - Keymap show git diff for Hunk
-- [ ] Cleanup Plugin Configuration
+- [x] Cleanup Plugin Configuration
 - [ ] Define Defaults for Python
 - [ ] Define Defaults for Rust
 - [ ] Define Defaults for Markdown
