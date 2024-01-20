@@ -18,4 +18,9 @@ return {
    { "williamboman/mason.nvim", lazy = false, config = true },
    require("config.mason_lspconfig"),
    require("config.cmp"),
+   {
+      'mrcjkb/rustaceanvim',
+      version = '^3', -- Recommended
+      ft = { 'rust' },
+   }
 }

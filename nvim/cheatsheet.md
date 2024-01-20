@@ -11,11 +11,9 @@
 - <leader>hn - Harpoon Next
 - <leader>hs - Search Harpoon
 - <C-e> - Harpoon UI
-- <C-h> - Select Harpoon 1
+- <C-r> - Select Harpoon 1
 - <C-t> - Select Harpoon 2
-- <C-s> - Select Harpoon 3
-- <C-n> - Toggle FileTree
-- <leader>e - Focus Filetree
+- <C-y> - Select Harpoon 3
 
 ## Editor
 - <leader>nn - Show line numbers
