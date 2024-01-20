@@ -8,4 +8,4 @@
    - [ ] Cleanup Mappings
 - [ ] Setup LSP Python
 - [x] Setup LSP Rust
-
+- [ ] Fix versions of plugins
