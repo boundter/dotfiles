@@ -1,11 +1,13 @@
-- [ ] Cleanup Keymaps
-   - Keymap show git diff for Hunk
+- [x] Cleanup Keymaps
 - [x] Cleanup Plugin Configuration
 - [ ] Define Defaults for Python
 - [x] Define Defaults for Rust
 - [ ] Define Defaults for Markdown
-- [ ] Cleanup LSP
-   - [ ] Cleanup Mappings
+- [x] Cleanup LSP
 - [ ] Setup LSP Python
 - [x] Setup LSP Rust
+
+
+- [ ] Setup git integration
+- [ ] Setup dap
 - [ ] Fix versions of plugins

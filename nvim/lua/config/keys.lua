@@ -28,19 +28,50 @@ M.lsp = {
    {"gd", vim.lsp.buf.definition},
    {"K", vim.lsp.buf.hover},
    {"gi", vim.lsp.buf.implementation},
-   {"<C-k>", vim.lsp.buf.signature_help},
-   {"<space>wa", vim.lsp.buf.add_workspace_folder},
-   {"<space>wr", vim.lsp.buf.remove_workspace_folder},
-   {"<space>wl", function()
+   {"<C-s>", vim.lsp.buf.signature_help},
+   {"gr", vim.lsp.buf.references},
+   -- {"<leader>wa", vim.lsp.buf.add_workspace_folder},
+   -- {"<leader>wr", vim.lsp.buf.remove_workspace_folder},
+   {"<leader>wl", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end},
-    {"<space>D", vim.lsp.buf.type_definition},
-    {"<space>rn", vim.lsp.buf.rename},
-    {"<space>ca", vim.lsp.buf.code_action},
-    {"gr", vim.lsp.buf.references},
-    {"<space>f", function()
+   end},
+   {"<leader>cd", vim.lsp.buf.type_definition},
+   {"<leader>cn", vim.lsp.buf.rename},
+   {"<leader>ca", vim.lsp.buf.code_action},
+   {"<leader>f", function()
       vim.lsp.buf.format { async = true }
-    end},
+   end},
+}
+
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+M.cmp = {
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+    -- C-b (back) C-f (forward) for snippet placeholder navigation.
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
 }
 
 return M

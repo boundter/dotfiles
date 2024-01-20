@@ -23,12 +23,28 @@
 - <C-O> - Jump to last cursor position
 - <C-^> - Jump to tge last file
 
+## Diagnostics
+- [d - go to prev
+- ]d - go to next
+- <leader>dd - Open diagnostics float
+- <leader>dl - Get Diagnotsics locations
+
 ## LSP
-- gD - Go to Declaration
-- gd - Glance Declaration?
-- gi - Glance Implementation?
-- gS - Signature Help?
-- gTD - Type Definition?
-- <leader>rn - ?
-- gr - Glance Reference?
-- gA - Code Action?
+- gD - GoTo Declaration
+- gd - GoTo Definition
+- gi - GoTo Implementation
+- gr - Show References
+- K - Hover
+- <C-s> - Signature Help
+- <leader>wl - Show Workspace folders
+- <leader>cd - Show Type Definition
+- <leader>cr - Rename
+- <leader>ca - Code Action
+- <leader>f - format
+- <C-u> - Scroll Docs up
+- <C-d> - Scroll Docs down
+- <C-Space> - Autocomplete
+- <Enter> - Accept Autocomplete
+- <Tab> - Select next Autocomplete
+- <S-Tab> - Select previous Autocomplete
+
