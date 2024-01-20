@@ -5,6 +5,14 @@ lspconfig.lua_ls.setup{
    capabilities = capabilities
 }
 
+lspconfig.pyright.setup{
+   capabilities = capabilities
+}
+
+lspconfig.ruff_lsp.setup{
+   capabilities = capabilities
+}
+
 local keymaps = require("config.keys")
 
 for _, key in ipairs(keymaps.diagnostics) do
