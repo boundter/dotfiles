@@ -1,12 +1,12 @@
 - [x] Cleanup Keymaps
 - [x] Cleanup Plugin Configuration
-- [ ] Define Defaults for Python
+- [x] Define Defaults for Python
 - [x] Define Defaults for Rust
-- [ ] Define Defaults for Markdown
+- [x] Define Defaults for Markdown
 - [x] Cleanup LSP
-- [ ] Setup LSP Python
+- [x] Setup LSP Python
 - [x] Setup LSP Rust
-
+- [x] Setup LSP Scala
 
 - [ ] Setup git integration
 - [ ] Setup dap

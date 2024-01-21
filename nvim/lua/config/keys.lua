@@ -36,7 +36,7 @@ M.lsp = {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
    end},
    {"<leader>cd", vim.lsp.buf.type_definition},
-   {"<leader>cn", vim.lsp.buf.rename},
+   {"<leader>cr", vim.lsp.buf.rename},
    {"<leader>ca", vim.lsp.buf.code_action},
    {"<leader>f", function()
       vim.lsp.buf.format { async = true }
