@@ -11,3 +11,8 @@
 - [ ] Setup git integration
 - [ ] Setup dap
 - [ ] Fix versions of plugins
+
+Pain Points
+- [ ] Setup of QSAV env -> Alias
+- [ ] Copy and Paste to other windows
+- [ ] Management of projects -> tmux
