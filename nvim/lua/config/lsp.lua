@@ -17,6 +17,10 @@ lspconfig.marksman.setup{
    capabilities = capabilities
 }
 
+lspconfig.bashls.setup{
+   capabilities = capabilities
+}
+
 local keymaps = require("config.keys")
 
 for _, key in ipairs(keymaps.diagnostics) do
