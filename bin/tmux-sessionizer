@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Copied over from ThePrimagen
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/code/tc/qsav ~/code/tc/upa-tool ~/code/personal/coding_exercises -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+start_command=zsh
+CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
+setup_file=$CONFIG_HOME/project_settings/$selected_name
+if [ -f $setup_file ]; then
+    start_command=$setup_file
+fi
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected $start_command
+    exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name -c $selected $start_command
+fi
+
+tmux switch-client -t $selected_name
