@@ -1,18 +1,8 @@
-- [x] Cleanup Keymaps
-- [x] Cleanup Plugin Configuration
-- [x] Define Defaults for Python
-- [x] Define Defaults for Rust
-- [x] Define Defaults for Markdown
-- [x] Cleanup LSP
-- [x] Setup LSP Python
-- [x] Setup LSP Rust
-- [x] Setup LSP Scala
-
 - [ ] Setup git integration
 - [ ] Setup dap
 - [ ] Fix versions of plugins
 
 Pain Points
-- [ ] Setup of QSAV env -> Alias
+- [x] Setup of QSAV env -> Alias
 - [ ] Copy and Paste to other windows
-- [ ] Management of projects -> tmux
+- [x] Management of projects -> tmux
