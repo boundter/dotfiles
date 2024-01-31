@@ -30,8 +30,8 @@ M.lsp = {
    {"gi", vim.lsp.buf.implementation},
    {"<C-s>", vim.lsp.buf.signature_help},
    {"gr", vim.lsp.buf.references},
-   -- {"<leader>wa", vim.lsp.buf.add_workspace_folder},
-   -- {"<leader>wr", vim.lsp.buf.remove_workspace_folder},
+   {"<leader>wa", vim.lsp.buf.add_workspace_folder},
+   {"<leader>wr", vim.lsp.buf.remove_workspace_folder},
    {"<leader>wl", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
    end},

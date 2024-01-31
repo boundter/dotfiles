@@ -23,12 +23,14 @@ if [ -f $setup_file ]; then
 fi
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected $start_command
+    tmux new-session -s $selected_name
+    tmux set-option -s -t $selected_name default-command $start_command
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected $start_command
+    tmux set-option -s -t $selected_name default-command $start_command
 fi
 
 tmux switch-client -t $selected_name

@@ -1,6 +1,7 @@
 return {
    -- Visual
    require("config.solarized_osaka"),
+   require("config.catppuccin"),
    require("config.indent_blankline"),
    require("config.lualine"),
    -- Editor
