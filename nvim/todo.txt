@@ -6,6 +6,8 @@ Pain Points
 - [x] Setup of QSAV env -> Alias
 - [ ] Copy and Paste to other windows
 - [x] Management of projects -> tmux
-- [ ] Workspace management for nested projects (webservice)
+- [x] Workspace management for nested projects (webservice)
 - [ ] Shortcut for telescope resume
 - [ ] Shortcut for focus undotree => necessary for splits
+- [ ] Handling of Notes-Directory is still in vs-code
+- [ ] Blame for bug finding

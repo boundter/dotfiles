@@ -6,6 +6,7 @@ Plug 'bling/vim-bufferline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-obsession'
 Plug 'rhysd/vim-grammarous'
@@ -86,12 +87,12 @@ set foldlevel=99
 " Colors
 "==================
 
-" colorscheme
-set background=dark
+colorscheme catppuccin_macchiato
+"set background=dark
 "set background=light
-colorscheme solarized
+"colorscheme solarized
 " let g:solarized_termcolors=256
-highlight! link SignColumn LineNr
+"highlight! link SignColumn LineNr
 
 "==================
 " Shortcuts
@@ -116,8 +117,8 @@ autocmd BufWritePre * %s/\s\+$//e
 set laststatus=2 " always show airline
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " add fugitive to the airline
 let g:airline#extensions#bufferline#enabled = 1 " add bufferline to airline
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+"let g:airline_theme='solarized'
+"let g:airline_solarized_bg='dark'
 
 " simplyFold
 let g:SimpylFold_docstring_preview = 1
