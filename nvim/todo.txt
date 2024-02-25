@@ -11,3 +11,4 @@ Pain Points
 - [ ] Shortcut for focus undotree => necessary for splits
 - [ ] Handling of Notes-Directory is still in vs-code
 - [ ] Blame for bug finding
+- [ ] Fluid Movememnt betwenn Tmux and Nvim
