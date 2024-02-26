@@ -1,14 +1,14 @@
 - [ ] Setup git integration
 - [ ] Setup dap
-- [ ] Fix versions of plugins
 
 Pain Points
 - [x] Setup of QSAV env -> Alias
-- [ ] Copy and Paste to other windows
+- [ ] Easy Copy and Paste to clipboard
 - [x] Management of projects -> tmux
 - [x] Workspace management for nested projects (webservice)
-- [ ] Shortcut for telescope resume
-- [ ] Shortcut for focus undotree => necessary for splits
-- [ ] Handling of Notes-Directory is still in vs-code
-- [ ] Blame for bug finding
-- [ ] Fluid Movememnt betwenn Tmux and Nvim
+- [x] Shortcut for telescope resume
+- [x] Shortcut for focus undotree => necessary for splits
+- [x] Handling of Notes-Directory is still in vs-code
+- [ ] Blame for bug finding => Git handling in general
+- [x] Fluid Movememnt betwenn Tmux and Nvim
+- [ ] Unify setting of keymaps

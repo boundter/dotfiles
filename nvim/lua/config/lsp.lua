@@ -53,7 +53,7 @@ cmp.setup {
          luasnip.lsp_expand(args.body)
       end,
    },
-   mapping = cmp.mapping.preset.insert(keymaps.cmp),
+   mapping = cmp.mapping.preset.insert(keymaps.cmp()),
    sources = {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },

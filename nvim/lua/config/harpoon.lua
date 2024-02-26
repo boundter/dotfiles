@@ -2,8 +2,6 @@ return {
    "ThePrimeagen/harpoon",
    branch = "harpoon2",
    dependencies = { "nvim-lua/plenary.nvim" },
-   keys = function()
-      return require("config.keys").harpoon
-   end,
+   keys = require("config.keys").harpoon,
    config  = true
 }
