@@ -21,4 +21,7 @@ return {
    require("config.cmp"),
    require("config.rustaceanvim"),
    require("config.nvim_metals"),
+   { "mfussenegger/nvim-dap", keys=require("config.keys").dap },
+   -- Utilities
+   require("config.markdown_preview"),
 }

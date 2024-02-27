@@ -93,4 +93,19 @@ M.cmp = function()
    }
 end
 
+M.dap = function()
+   local dap = require("dap")
+   local dap_widgets = require("dap.ui.widgets")
+
+   return {
+      { "<leader>dc", function() dap.continue() end },
+      { "<leader>dr", function() dap.repl.toggle() end },
+      { "<leader>dK", function() dap_widgets.hover() end },
+      { "<leader>dt", function() dap.toggle_breakpoint() end },
+      { "<leader>dso", function() dap.step_over() end },
+      { "<leader>dsi", function() dap.step_into() end },
+      { "<leader>dl", function() dap.run_last() end },
+   }
+end
+
 return M
