@@ -1,5 +1,8 @@
 - [ ] Setup git integration
 - [ ] Setup dap
+   - [x] Rust
+   - [x] Scala
+   - [ ] Python
 
 Pain Points
 - [x] Setup of QSAV env -> Alias
