@@ -31,6 +31,13 @@ M.harpoon = function()
    }
 end
 
+M.fugitive = function()
+   return {
+      {"<leader>gb", function() vim.cmd.Git({"blame"}) end},
+      {"<leader>gd", function() vim.cmd.Gdiffsplit() end}
+   }
+end
+
 M.diagnostics = {
    {"[d", vim.diagnostic.goto_prev},
    {"]d", vim.diagnostic.goto_next},

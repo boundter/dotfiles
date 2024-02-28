@@ -1,4 +1,4 @@
-- [ ] Setup git integration
+- [x] Setup git integration
 - [ ] Setup dap
    - [x] Rust
    - [x] Scala
@@ -12,6 +12,6 @@ Pain Points
 - [x] Shortcut for telescope resume
 - [x] Shortcut for focus undotree => necessary for splits
 - [x] Handling of Notes-Directory is still in vs-code
-- [ ] Blame for bug finding => Git handling in general
+- [x] Blame for bug finding => Git handling in general
 - [x] Fluid Movememnt betwenn Tmux and Nvim
 - [ ] Unify setting of keymaps
