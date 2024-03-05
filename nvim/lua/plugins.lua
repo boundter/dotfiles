@@ -20,6 +20,12 @@ return {
    require("config.mason_lspconfig"),
    require("config.cmp"),
    require("config.rustaceanvim"),
+   { "mfussenegger/nvim-dap-python",
+      config = function(self, opts)
+         require("dap-python").setup("~/.envs/debugpy/bin/python")
+         require("dap-python").test_runner = "pytest"
+      end,
+      ft = "python" },
    require("config.nvim_metals"),
    { "mfussenegger/nvim-dap", keys=require("config.keys").dap },
    -- Utilities

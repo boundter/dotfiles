@@ -2,7 +2,7 @@
 - [ ] Setup dap
    - [x] Rust
    - [x] Scala
-   - [ ] Python
+   - [ ] Python (Cleanup + Keymaps)
 
 Pain Points
 - [x] Setup of QSAV env -> Alias
