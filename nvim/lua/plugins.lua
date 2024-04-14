@@ -7,7 +7,7 @@ return {
    -- Editor
    require("config.undotree"),
    -- Git
-   { "tpope/vim-fugitive", keys=require("config.keys").fugitive},
+   { "tpope/vim-fugitive", keys=require("config.keys").fugitive, lazy = false},
    require("config.gitsigns"),
    -- File handling
    require("config.nvimtree"),

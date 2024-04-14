@@ -10,3 +10,7 @@ vim.keymap.set("n", "<c-l>", "<c-w>l", {})
 -- Line numbers
 vim.keymap.set("n", "<leader>nn", "<cmd> set nu! <CR>", {})
 vim.keymap.set("n", "<leader>nr", "<cmd> set rnu! <CR>", {})
+
+-- Center on Cursor after moving up or down
+vim.keymap.set("n", "<c-d>", "<c-d>zz", {})
+vim.keymap.set("n", "<c-u>", "<c-u>zz", {})
