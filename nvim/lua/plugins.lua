@@ -4,30 +4,27 @@ return {
    require("config.catppuccin"),
    require("config.indent_blankline"),
    require("config.lualine"),
+   require("config.notify"),
    -- Editor
    require("config.undotree"),
    -- Git
-   { "tpope/vim-fugitive", keys=require("config.keys").fugitive, lazy = false},
+   require("config.fugitive"),
    require("config.gitsigns"),
    -- File handling
    require("config.nvimtree"),
    require("config.telescope"),
    require("config.harpoon"),
    -- LSP
-   { 'folke/neodev.nvim', config = true },
+   require("config.neodev_plugin"),
    require("config.treesitter"),
-   { "williamboman/mason.nvim", lazy = false, config = true },
+   require("config.mason_plugin"),
    require("config.mason_lspconfig"),
    require("config.cmp"),
    require("config.rustaceanvim"),
-   { "mfussenegger/nvim-dap-python",
-      config = function(self, opts)
-         require("dap-python").setup("~/.envs/debugpy/bin/python")
-         require("dap-python").test_runner = "pytest"
-      end,
-      ft = "python" },
+   require("config.dap"),
    require("config.nvim_metals"),
-   { "mfussenegger/nvim-dap", keys=require("config.keys").dap },
+   require("config.copilot_lsp"),
+   require("config.dap_python"),
    -- Utilities
-   require("config.markdown_preview"),
+   require("config.markdown_preview")
 }
