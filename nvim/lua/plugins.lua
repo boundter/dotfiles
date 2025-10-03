@@ -15,6 +15,7 @@ return {
    require("config.telescope"),
    require("config.harpoon"),
    -- LSP
+   require("config.lspconfig"),
    require("config.neodev_plugin"),
    require("config.treesitter"),
    require("config.mason_plugin"),
@@ -24,7 +25,7 @@ return {
    require("config.dap"),
    require("config.nvim_metals"),
    require("config.copilot_lsp"),
-   require("config.dap_python"),
+   -- require("config.dap_python"),
    -- Utilities
    require("config.markdown_preview"),
    -- {
