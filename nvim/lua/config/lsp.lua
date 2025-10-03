@@ -33,6 +33,19 @@ lspconfig.gitlab_ci_ls.setup{
    capabilities = capabilities
 }
 
+lspconfig.harper_ls.setup{
+   filetypes = { "markdown", "gitcommit", "text" },
+   capabilities = capabilities,
+   settings = {
+      ["harper-ls"] = {
+         linters = {
+            SpellCheck = false,
+            AvoidCurses = false
+         }
+      }
+   }
+}
+
 local keymaps = require("config.keys")
 
 for _, key in ipairs(keymaps.diagnostics) do
