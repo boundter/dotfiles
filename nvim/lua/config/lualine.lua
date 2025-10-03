@@ -8,7 +8,7 @@ return {
       -- osaka.normal.b.bg = colors.default.base01
       return {
          options = {theme = "catppuccin"},
-         sections = { lualine_c = { } }
+         sections = { lualine_c = {'lsp_status'} }
       }
    end,
    config = true

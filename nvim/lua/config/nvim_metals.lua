@@ -6,8 +6,9 @@ return {
       metals_config.settings = {
          showImplicitArguments = true,
          serverProperties = {"-Xmx4G"},
-         serverVersion = "1.5.1"
+         serverVersion = "1.5.1",
       }
+      metals_config.find_root_dir_max_project_nesting = 0
       -- metals_config.init_options.statusBarProvider = "on"
       metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
       metals_config.on_attach = function(client, bufnr)
