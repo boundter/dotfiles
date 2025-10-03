@@ -28,12 +28,5 @@ return {
    -- require("config.dap_python"),
    -- Utilities
    require("config.markdown_preview"),
-   -- {
-   --    "olimorris/codecompanion.nvim",
-   --    opts = {},
-   --    dependencies = {
-   --       "nvim-lua/plenary.nvim",
-   --       "nvim-treesitter/nvim-treesitter"
-   --    }
-   -- }
+   require("config.codecompanion")
 }

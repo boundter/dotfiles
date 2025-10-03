@@ -116,4 +116,10 @@ M.dap = function()
    }
 end
 
+M.codecompanion = {
+   { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, silent = true, noremap = true},
+   { "<leader>cs", "<cmd>CodeCompanionAction<cr>", mode = { "n", "v" }, silent = true, noremap = true},
+   { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = "v", silent = true, noremap = true},
+}
+
 return M
