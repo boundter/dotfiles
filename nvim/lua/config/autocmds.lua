@@ -6,3 +6,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
    pattern ="*",
    command = [[%s/\s\+$//e]]
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
+  group = misc_aucmds,
+  pattern = { "*.rs" },
+  callback = function()
+    vim.lsp.codelens.refresh()
+  end,
+})
