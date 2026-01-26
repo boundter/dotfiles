@@ -14,3 +14,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
     vim.lsp.codelens.refresh()
   end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+  group = misc_aucmds,
+  pattern = "*.j2",
+  command = "set filetype=jinja"
+})
