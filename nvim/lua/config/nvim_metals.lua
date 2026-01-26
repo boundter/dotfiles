@@ -6,7 +6,7 @@ return {
       metals_config.settings = {
          showImplicitArguments = true,
          serverProperties = {"-Xmx4G"},
-         serverVersion = "1.5.1",
+         serverVersion = "1.6.4",
       }
       metals_config.find_root_dir_max_project_nesting = 0
       metals_config.init_options.statusBarProvider = "on"
