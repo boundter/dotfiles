@@ -7,6 +7,8 @@ return {
          showImplicitArguments = true,
          serverProperties = {"-Xmx4G"},
          serverVersion = "1.6.4",
+         startMcpServer = true,
+         javaHome = "/home/eteichma/.local/share/amazon-corretto-17.0.16.8.1-linux-x64"
       }
       metals_config.find_root_dir_max_project_nesting = 0
       metals_config.init_options.statusBarProvider = "on"
