@@ -24,9 +24,7 @@ return {
    require("config.rustaceanvim"),
    require("config.dap"),
    require("config.nvim_metals"),
-   require("config.copilot_lsp"),
    -- require("config.dap_python"),
    -- Utilities
    require("config.markdown_preview"),
-   require("config.codecompanion")
 }

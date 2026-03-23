@@ -80,41 +80,8 @@ cmp.setup {
    sources = {
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-      -- { name = 'copilot' },
    },
-   -- formatting = {
-   --  format = lspkind.cmp_format({
-   --    mode = "symbol",
-   --    max_width = 50,
-   --    symbol_map = { Copilot = "",  }
-   --  })
-  -- }
 }
-
-require("copilot").setup({
-   suggestion = {
-    enabled = true,
-    auto_trigger = false,
-    hide_during_completion = true,
-    debounce = 75,
-    keymap = {
-      accept = "<C-]>",
-      accept_word = false,
-      accept_line = false,
-      next = "<M-]>",
-      prev = "<M-[>",
-      dismiss = "<C-[>",
-    },
-  },
-})
-
-cmp.event:on("menu_opened", function()
-  vim.b.copilot_suggestion_hidden = true
-end)
-
-cmp.event:on("menu_closed", function()
-  vim.b.copilot_suggestion_hidden = false
-end)
 
 local dap = require("dap")
 dap.listeners.before['event_progressStart']['progress-notifications'] = function(session, body)
