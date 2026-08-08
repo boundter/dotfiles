@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
   group = misc_aucmds,
   pattern = { "*.rs" },
   callback = function()
-    vim.lsp.codelens.refresh()
+    vim.lsp.codelens.enable(true)
   end,
 })
 
