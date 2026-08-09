@@ -16,7 +16,6 @@ opentxt () {
 wvim() {
   local write_dir="$HOME/writing"
 
-  local cfg="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty-latte.toml"
   if ! tmux has-session -t write 2>/dev/null; then
     tmux new-session -d -s write -c "$write_dir" "NVIM_FLAVOUR=latte nvim"
   fi
@@ -34,7 +33,16 @@ wvim() {
   tmux set-option -t write pane-border-style "fg=#bcc0cc"
   tmux set-option -t write pane-active-border-style "fg=#8839ef"
 
-  alacritty --config-file "$cfg" -e tmux attach -t write
+  if [[ "$OSTYPE" == darwin* ]]; then
+    osascript <<'EOF'
+tell application "iTerm2"
+    create window with profile "Default Light" command "/opt/homebrew/bin/tmux attach -t write"
+end tell
+EOF
+  else
+    local cfg="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty-latte.toml"
+    alacritty --config-file "$cfg" -e tmux attach -t write
+  fi
 }
 
 alias send_notification="notify-send -a Konsole -h 'string:desktop-entry:org.kde.konsole' -t 5000"
