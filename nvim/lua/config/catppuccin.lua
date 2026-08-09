@@ -4,7 +4,7 @@ return {
    lazy = false,
    priority = 1000,
    opts = {
-      flavour = "macchiato",
+      flavour = vim.env.NVIM_FLAVOUR or "macchiato",
       auto_integrations = true,
    },
    config = function(_, opts)
