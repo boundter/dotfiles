@@ -19,7 +19,7 @@ wvim() {
   if ! tmux has-session -t write 2>/dev/null; then
     tmux new-session -d -s write -c "$write_dir" "NVIM_FLAVOUR=latte nvim"
   fi
-  tmux set-environment -t write -g NVIM_FLAVOUR latte
+  tmux set-environment -t write NVIM_FLAVOUR latte
 
  # latte bar for the write session
   tmux set-option -t write status-style "bg=#e6e9ef,fg=#4c4f69"
@@ -41,7 +41,8 @@ end tell
 EOF
   else
     local cfg="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty-latte.toml"
-    alacritty --config-file "$cfg" -e tmux attach -t write
+    alacritty --config-file "$cfg" -e tmux attach -t write &
+    disown
   fi
 }
 
