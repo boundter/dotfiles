@@ -20,7 +20,7 @@ for _, server in ipairs(servers) do
 end
 
 vim.lsp.config("harper_ls", {
-      filetypes = { "markdown", "gitcommit", "text" },
+      filetypes = { "markdown", "gitcommit", "text", "asciidoc" },
       capabilities = capabilities,
       settings = {
          ["harper-ls"] = {
