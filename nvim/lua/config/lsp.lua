@@ -34,6 +34,33 @@ vim.lsp.config("harper_ls", {
 )
 vim.lsp.enable("harper_ls")
 
+local function maybe_detach_harper(buf)
+  if not vim.bo[buf].spelllang:match("de") then
+    return
+  end
+  for _, client in ipairs(vim.lsp.buf_get_clients(buf)) do
+    if client.name == "harper_ls" then
+      pcall(vim.lsp.buf_detach_client, buf, client.id)
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client.name == "harper_ls" then
+      maybe_detach_harper(ev.buf)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "spelllang",
+  callback = function(ev)
+    maybe_detach_harper(ev.buf)
+  end,
+})
+
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
