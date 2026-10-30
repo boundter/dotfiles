@@ -6,7 +6,7 @@
 #              that `source` the repo files, preserving any machine-specific
 #              lines that were already in them.
 #   * tmux:    writes ~/.tmux.conf as a wrapper, installs tpm + plugins and
-#              copies bin/tmux-sessionizer to ~/.local/bin.
+#              copies tmux helpers to ~/.local/bin (Python 3 required for agent status).
 #   * nvim:    symlinks ~/.config/nvim to the repo nvim/ dir.
 #
 # Also installs dependencies: oh-my-zsh, zsh-autosuggestions, lazy.nvim.
@@ -127,6 +127,12 @@ install_deps() {
         cp "$REPO_DIR/bin/tmux-sessionizer" "$HOME/.local/bin/tmux-sessionizer"
         chmod +x "$HOME/.local/bin/tmux-sessionizer"
         ok "installed tmux-sessionizer to ~/.local/bin"
+    fi
+
+    if [[ -f "$REPO_DIR/bin/tmux-agent-status" ]]; then
+        cp "$REPO_DIR/bin/tmux-agent-status" "$HOME/.local/bin/tmux-agent-status"
+        chmod +x "$HOME/.local/bin/tmux-agent-status"
+        ok "installed tmux-agent-status to ~/.local/bin"
     fi
 
     if [[ -d "$HOME/.tmux/plugins/tpm" ]] && has tmux; then
