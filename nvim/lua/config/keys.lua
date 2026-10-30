@@ -9,8 +9,15 @@ M.undotree = {
 M.telescope = function()
    local builtin = require('telescope.builtin')
 
-   vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-   vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+   vim.keymap.set('n', '<leader>pf', function()
+      builtin.find_files({
+         hidden = true,
+         find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+      })
+   end, {})
+   vim.keymap.set('n', '<leader>pg', function()
+      builtin.live_grep({ additional_args = { "--hidden", "--glob", "!.git/*" } })
+   end, {})
    vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
    vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
    vim.keymap.set("n", "<leader>pr", builtin.resume, {})
