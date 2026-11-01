@@ -6,6 +6,7 @@ return {
       automatic_enable = {
         exclude = {
             "rust_analyzer",
+            "harper_ls", -- enabled/disabled by config.writing
         }
       }
    },

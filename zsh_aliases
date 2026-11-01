@@ -17,8 +17,9 @@ wvim() {
   local write_dir="$HOME/writing"
 
   if ! tmux has-session -t write 2>/dev/null; then
-    tmux new-session -d -s write -c "$write_dir" "NVIM_FLAVOUR=latte nvim"
+    tmux new-session -d -s write -c "$write_dir" "WVIM=1 NVIM_FLAVOUR=latte nvim"
   fi
+  tmux set-environment -t write WVIM 1
   tmux set-environment -t write NVIM_FLAVOUR latte
 
  # latte bar for the write session

@@ -23,6 +23,9 @@
 - <C-O> - Jump to last cursor position
 - <C-^> - Jump to tge last file
 
+## Writing
+- :WritingChecks - Toggle spelling and grammar checks (wvim only)
+
 ## Diagnostics
 - [d - go to prev
 - ]d - go to next
